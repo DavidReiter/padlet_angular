@@ -1,0 +1,9 @@
+<div [ngStyle]="{'padding': '20px 0'}">
+  <h3>{{user.firstName}} {{user.lastName}}</h3>
+  <div>
+    <h5 [ngStyle]="{'display': 'inline-block'}">Berechtigungen: </h5>
+    <div *ngIf="userright.read" [ngStyle]="{'display': 'inline-block', 'padding': '0 10px'}"><label >Lesen</label></div>
+    <div *ngIf="userright.edit" [ngStyle]="{'display': 'inline-block', 'padding': '0 10px'}"><label >Bearbeiten</label></div>
+    <div *ngIf="userright.Delete" [ngStyle]="{'display': 'inline-block', 'padding': '0 10px'}"><label >Löschen</label></div>
+  </div>
+</div>
