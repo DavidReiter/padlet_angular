@@ -10,6 +10,8 @@ import {CommentFactory} from "../shared/comment-factory";
 import {EntrieFormErrorMessages} from "../entrie-form/entrie-form-error-messages";
 import {PadletFactory} from "../shared/padlet-factory";
 import {RatingFactory} from "../shared/rating-factory";
+import { Userright } from '../shared/userright';
+import { UserrightFactory } from '../shared/userright-factory';
 
 @Component({
   selector: 'bs-entrie-item',
@@ -19,6 +21,7 @@ import {RatingFactory} from "../shared/rating-factory";
 })
 export class EntrieItemComponent implements OnInit{
   @Input() entrie: Entrie = EntrieFactory.empty();
+  @Input() userrights: Userright = UserrightFactory.empty();
   @ViewChild("entrieID") entrieID : ElementRef | undefined;
   entrie_id : number = 0;
 

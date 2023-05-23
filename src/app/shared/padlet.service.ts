@@ -113,23 +113,23 @@ export class PadletService {
       .pipe(retry(3)).pipe(catchError(this.errorHandler));
   }
 
-  getAllUserrights(): Observable<Array<Userright>>{
-    return this.http.get<Array<Userright>>(`${this.api}/userrights`)
+  getAllUserrights(): Observable<Array<any>>{
+    return this.http.get<Array<any>>(`${this.api}/userrights`)
       .pipe(retry(3)).pipe(catchError(this.errorHandler))
   }
 
-  getUserrightsForPadlet(id: string) : Observable<Array<Userright>> {
-    return this.http.get<Array<Userright>>(`${this.api}/userrights/${id}`)
+  getUserrightsForPadlet(id: string) : Observable<Array<any>> {
+    return this.http.get<Array<any>>(`${this.api}/userrights/${id}`)
       .pipe(retry(3)).pipe(catchError(this.errorHandler))
   }
 
-  getUserrightsForUser(id: string) : Observable<Array<Userright>> {
-    return this.http.get<Array<Userright>>(`${this.api}/userrightsuser/${id}`)
+  getUserrightsForUser(id: string) : Observable<Array<any>> {
+    return this.http.get<Array<any>>(`${this.api}/userrightsuser/${id}`)
       .pipe(retry(3)).pipe(catchError(this.errorHandler))
   }
 
-  getSingleUserright(padlet_id: string, user_id: string): Observable<Userright>{
-    return this.http.get<Userright>(`${this.api}/userrights/${padlet_id}/${user_id}`)
+  getSingleUserright(padlet_id: string, user_id: string): Observable<any>{
+    return this.http.get<any>(`${this.api}/userrights/${padlet_id}/${user_id}`)
       .pipe(retry(3)).pipe(catchError(this.errorHandler))
   }
 

@@ -1,6 +1,6 @@
 <div [ngStyle]="{'display': 'flex'}">
   <h1 [ngStyle]="{'display': 'inline', 'margin': '0px', 'margin-right': '1rem'}">{{ padlet?.name }}</h1>
-  <button class="ui small basic icon button" (click)="toggleMenu()"><i class="setting icon"></i></button>
+  <button *ngIf="userrights.edit" class="ui small basic icon button" (click)="toggleMenu()"><i class="setting icon"></i></button>
   <div *ngIf="isMenuOpen" class="ui small basic icon buttons">
     <button *ngIf="userrights.edit" class="ui button" [routerLink]="['/addEntrie', padlet.id]"><i class="icon add"></i></button>
     <button *ngIf="isOwner" class="ui button" [routerLink]="['/addPadlet', padlet.id]"><i class="edit icon"></i></button>
@@ -48,7 +48,7 @@
 <div class="content">von {{ padlet?.user?.firstName}} {{ padlet?.user?.lastName}}</div>
 <br>
 <div *ngFor="let entrie of padlet?.entries" >
-  <bs-entrie-item [entrie]=entrie></bs-entrie-item><br>
+  <bs-entrie-item [entrie]=entrie [userrights]=userrights></bs-entrie-item><br>
 </div>
 
 

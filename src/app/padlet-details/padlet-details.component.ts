@@ -50,9 +50,15 @@ export class PadletDetailsComponent implements OnInit {
           this.isOwner = true;
         }
         // get userrights of current user
-        this.bs.getSingleUserright(this.padlet.id.toString(), user_id).subscribe((res: Userright) => {
-          if(res.user_id == undefined) {
+        this.bs.getSingleUserright(this.padlet.id.toString(), user_id).subscribe((res: any) => {
+          let userright = Userright.mapUserright(res);
+          if(userright.user_id == undefined) {
             this.userrights = new Userright(+user_id, this.padlet.id, true, false, false)
+          }
+          else {
+            this.userrights = userright;
+            console.log(this.userrights);
+
           }
         })
       });

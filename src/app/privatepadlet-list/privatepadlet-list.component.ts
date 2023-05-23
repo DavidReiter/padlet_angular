@@ -37,8 +37,9 @@ export class PrivatepadletListComponent {
   }
 
   getInvitedPadlets(user_id: string) : void {
-    this.bs.getUserrightsForUser(user_id).subscribe((res: Userright[]) => {
-      for(let userright of res) {
+    this.bs.getUserrightsForUser(user_id).subscribe((res: any[]) => {
+      for(let obj of res) {
+        let userright = Userright.mapUserright(obj);
         this.bs.getSinglePadlet(userright.padlet_id).subscribe((res: Padlet) => {
           if(res.user_id != +user_id && res.is_public == false) {
             this.privPadlets.push(res);
