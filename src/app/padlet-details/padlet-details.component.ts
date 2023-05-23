@@ -139,6 +139,7 @@ export class PadletDetailsComponent implements OnInit {
           this.bs.createInvite(this.invite).subscribe(res => {
             this.invite = InviteFactory.empty();
             this.modalClose();
+            window.alert("Einladung erfolgreich versendet.");
           });
         }
         else {
